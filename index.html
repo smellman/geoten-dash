@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css"/>
+<style>
+body { margin: 0; top: 0; bottom: 0; width: 100%; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
+<script src="https://hfu.github.io/dash-prototype/bundle.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<script>
+board = [
+  [null, null, null, null, null, 99, 99, 99, 99, 99, 99, 99],
+  [null, null, null, null, null, 99, 99, 99, 99, 99, 99, 99],
+  [99, 1, 2, 3, 4, 99, 5, 6, 99, 7, 8, 99],
+  [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99],
+  [99, 9, 10, 11, 12, 99, 13, 14, 99, 15, 16, 99],
+  [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99],
+  [99, 17, 18, 19, 20, 99, 21, 22, 99, 23, 24, 99],
+  [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99],
+  [99, 25, 26, 27, 28, 99, 29, 30, 99, 31, 32, 99]
+]
+names = {
+  1: '',
+  2: '',
+  3: '',
+  4: '',
+  5: '',
+  6: '',
+  7: '',
+  8: '',
+  9: '',
+  10: '',
+  11: '',
+  12: '',
+  13: '',
+  14: '',
+  15: '',
+  16: '',
+  17: '',
+  18: '',
+  19: '',
+  20: '',
+  21: '',
+  22: '',
+  23: '',
+  24: '',
+  25: '',
+  26: '',
+  27: '',
+  28: '',
+  29: '',
+  30: '',
+  31: '',
+  32: '',
+  99: 'empty'
+}
+table = [[...Array(32).keys()].map(i => ++i), 1]
+
+map = dash.createMap({
+  title: 'ジオ展ブース',
+  board: board,
+  names: names,
+  table: table,
+  color: function(v) {
+    if (v == 1) {
+      return ['rgb', 254, 194, 64]
+    } else {
+      return ['rgb', 0, 0, 0]
+    }
+  }
+})
+</script>
+</body>
+</html>
